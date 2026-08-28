@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sadiquedocs.github.io/sadiquedocs/sitemap.xml
