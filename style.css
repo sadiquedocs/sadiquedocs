@@ -1080,172 +1080,73 @@
 }
 
 /* =====================================================
-   SADIQUE DOCS — BIRTHDAY TEXT INTRO
+   BIRTHDAY WISH — HOME HERO
 ===================================================== */
 
-#birthday-intro {
-  position: fixed;
-  inset: 0;
-  z-index: 999999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #050605;
-  color: #e7ebe4;
+.birthday-wish {
+  margin-top: 42px;
+  max-width: 720px;
   text-align: center;
-  overflow: hidden;
-  animation: birthdayIntroOut 1.5s ease 17s forwards;
 }
 
-.birthday-content {
-  width: min(850px, 88%);
-  opacity: 0;
-  animation: birthdayContentIn 1.8s ease .5s forwards;
-}
-
-.birthday-date {
-  margin: 0 0 25px;
-  color: #26ff00;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 12px;
-  letter-spacing: .35em;
-  opacity: 0;
-  animation: birthdayFadeUp 1s ease 1s forwards;
-}
-
-.birthday-title {
-  margin: 0;
-  font-family: "Archivo Black", sans-serif;
-  font-size: clamp(45px, 9vw, 105px);
-  line-height: .9;
-  letter-spacing: -.04em;
-  opacity: 0;
-  animation: birthdayTitle 1.4s ease 2s forwards;
-}
-
-.birthday-name {
-  margin: 18px 0 0;
-  color: #26ff00;
-  font-family: "Archivo Black", sans-serif;
-  font-size: clamp(25px, 5vw, 55px);
-  letter-spacing: .04em;
-  opacity: 0;
-  animation: birthdayFadeUp 1.2s ease 3.2s forwards;
-}
-
-.birthday-line {
-  width: 0;
-  height: 1px;
-  margin: 32px auto;
-  background: #26ff00;
-  animation: birthdayLine 1s ease 4.4s forwards;
-}
-
-.birthday-message {
-  max-width: 700px;
-  margin: 0 auto;
-  color: #ecf1ea;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 14px;
-  line-height: 1.9;
-  opacity: 0;
-  animation: birthdayFadeUp 1.2s ease 5.2s forwards;
-}
-
-.birthday-message strong {
-  color: #e7ebe4;
-}
-
-.birthday-message.second {
-  margin-top: 25px;
-  color: #ffffff;
-  opacity: 0;
-  animation: birthdayFadeUp 1.2s ease 8s forwards;
-}
-
-.birthday-final {
-  margin: 35px 0 0;
+.birthday-greeting {
+  margin: 0 0 14px;
   color: #26ff00;
   font-family: "JetBrains Mono", monospace;
   font-size: 11px;
-  letter-spacing: .2em;
-  opacity: 0;
-  animation: birthdayFadeUp 1.2s ease 11s forwards;
+  font-weight: 600;
+  letter-spacing: .25em;
 }
 
-.birthday-welcome {
-  margin: 22px 0 0;
+.birthday-wish h2 {
+  margin: 0;
   font-family: "Archivo Black", sans-serif;
-  font-size: clamp(18px, 3vw, 30px);
-  letter-spacing: .05em;
-  opacity: 0;
-  animation: birthdayFadeUp 1.2s ease 12.5s forwards;
+  font-size: clamp(28px, 5vw, 58px);
+  line-height: .95;
+  letter-spacing: -.03em;
 }
 
-
-/* =====================================================
-   ANIMATIONS
-===================================================== */
-
-@keyframes birthdayContentIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.birthday-wish h2 span {
+  color: #26ff00;
 }
 
-@keyframes birthdayTitle {
-  from {
-    opacity: 0;
-    transform: translateY(35px);
-    letter-spacing: .15em;
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    letter-spacing: -.04em;
-  }
+.birthday-text {
+  max-width: 560px;
+  margin: 22px auto 0;
+  color: #aeb5aa;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  line-height: 1.8;
 }
 
-@keyframes birthdayFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(22px);
-  }
+.birthday-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  margin-top: 24px;
+  padding: 0 20px;
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  border: 1px solid #26ff00;
+  color: #26ff00;
+  background: transparent;
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-decoration: none;
+
+  transition:
+    background .25s ease,
+    color .25s ease,
+    transform .25s ease;
 }
 
-@keyframes birthdayLine {
-  from {
-    width: 0;
-  }
-
-  to {
-    width: 110px;
-  }
-}
-
-@keyframes birthdayIntroOut {
-  from {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  to {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
+.birthday-btn:hover {
+  background: #26ff00;
+  color: #050605;
+  transform: translateY(-2px);
 }
 
 
@@ -1255,134 +1156,34 @@
 
 @media (max-width: 600px) {
 
-  .birthday-message {
-    font-size: 12px;
-    line-height: 1.8;
+  .birthday-wish {
+    width: 100%;
+    margin-top: 30px;
+    padding: 0 4px;
   }
 
-  .birthday-final {
+  .birthday-greeting {
     font-size: 9px;
-    letter-spacing: .12em;
+    letter-spacing: .18em;
   }
 
-}
-
-/* =====================================================
-   ROSE PETALS — BIRTHDAY EFFECT
-===================================================== */
-
-#birthday-intro::before {
-  content: "🌹  🌸  🌹  🌸  🌹  🌸  🌹  🌸  🌹  🌸";
-  position: absolute;
-  top: -60px;
-  left: 0;
-  width: 100%;
-  height: 120%;
-  pointer-events: none;
-  z-index: 1;
-
-  font-size: 22px;
-  letter-spacing: 55px;
-  line-height: 75px;
-
-  opacity: .65;
-
-  animation: petalsFall 12s linear infinite;
-}
-
-#birthday-intro::after {
-  content: "🌸  🌹  🌸  🌹  🌸  🌹  🌸  🌹  🌸";
-  position: absolute;
-  top: -80px;
-  left: -50px;
-  width: 120%;
-  height: 120%;
-  pointer-events: none;
-  z-index: 1;
-
-  font-size: 15px;
-  letter-spacing: 80px;
-  line-height: 110px;
-
-  opacity: .4;
-
-  animation: petalsFallSlow 17s linear infinite;
-}
-
-
-/* Keep birthday text above petals */
-
-.birthday-content {
-  position: relative;
-  z-index: 5;
-}
-
-
-/* =====================================================
-   PETAL FALLING ANIMATION
-===================================================== */
-
-@keyframes petalsFall {
-
-  0% {
-    transform:
-      translateY(-100px)
-      translateX(0)
-      rotate(0deg);
+  .birthday-wish h2 {
+    font-size: clamp(27px, 9vw, 42px);
+    line-height: 1;
   }
 
-  25% {
-    transform:
-      translateY(25vh)
-      translateX(35px)
-      rotate(90deg);
+  .birthday-text {
+    margin-top: 18px;
+    font-size: 11px;
+    line-height: 1.7;
   }
 
-  50% {
-    transform:
-      translateY(50vh)
-      translateX(-30px)
-      rotate(180deg);
-  }
-
-  75% {
-    transform:
-      translateY(75vh)
-      translateX(40px)
-      rotate(270deg);
-  }
-
-  100% {
-    transform:
-      translateY(110vh)
-      translateX(-20px)
-      rotate(360deg);
-  }
-
-}
-
-
-@keyframes petalsFallSlow {
-
-  0% {
-    transform:
-      translateY(-120px)
-      translateX(0)
-      rotate(0deg);
-  }
-
-  50% {
-    transform:
-      translateY(55vh)
-      translateX(-60px)
-      rotate(180deg);
-  }
-
-  100% {
-    transform:
-      translateY(115vh)
-      translateX(50px)
-      rotate(360deg);
+  .birthday-btn {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 20px;
+    padding: 0 12px;
+    font-size: 10px;
   }
 
 }
