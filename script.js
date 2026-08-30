@@ -212,3 +212,95 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+/* =====================================================
+   SADIQUE DOCS — 31 AUGUST BIRTHDAY INTRO
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const birthdayIntro =
+    document.getElementById("birthday-intro");
+
+  if (!birthdayIntro) return;
+
+
+  /* =====================================================
+     DATE SETTINGS
+  ===================================================== */
+
+  const today = new Date();
+
+  const isBirthday =
+    today.getMonth() === 7 &&
+    today.getDate() === 31;
+
+
+  /*
+    TEST MODE
+
+    Testing ke waqt:
+    const TEST_MODE = true;
+
+    Real website publish karte waqt:
+    const TEST_MODE = false;
+  */
+
+  const TEST_MODE = false;
+
+
+  /* =====================================================
+     SHOW / HIDE BIRTHDAY INTRO
+  ===================================================== */
+
+  if (!isBirthday && !TEST_MODE) {
+
+    birthdayIntro.remove();
+    return;
+
+  }
+
+
+  /* =====================================================
+     MAKE INTRO VISIBLE
+  ===================================================== */
+
+  birthdayIntro.style.display = "flex";
+
+  birthdayIntro.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+
+  /* =====================================================
+     PREVENT SCROLLING
+  ===================================================== */
+
+  document.body.style.overflow = "hidden";
+
+
+  /* =====================================================
+     AUTOMATICALLY FINISH INTRO
+     
+     CSS animation = approximately 17 seconds
+  ===================================================== */
+
+  setTimeout(() => {
+
+    birthdayIntro.style.pointerEvents = "none";
+
+    birthdayIntro.style.opacity = "0";
+
+    setTimeout(() => {
+
+      birthdayIntro.remove();
+
+      document.body.style.overflow = "";
+
+    }, 1500);
+
+  }, 17500);
+
+
+});
