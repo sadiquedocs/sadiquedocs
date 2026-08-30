@@ -214,19 +214,19 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* =====================================================
-   SADIQUE DOCS — 31 AUGUST BIRTHDAY INTRO
+   SADIQUE DOCS — BIRTHDAY HERO MESSAGE
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  const birthdayIntro =
-    document.getElementById("birthday-intro");
+  const birthdayWish = document.querySelector(".birthday-wish");
 
-  if (!birthdayIntro) return;
+  if (!birthdayWish) return;
 
 
   /* =====================================================
-     DATE SETTINGS
+     DATE CHECK
+     August = 7 in JavaScript
   ===================================================== */
 
   const today = new Date();
@@ -236,71 +236,28 @@ document.addEventListener("DOMContentLoaded", () => {
     today.getDate() === 31;
 
 
-  /*
-    TEST MODE
-
-    Testing ke waqt:
-    const TEST_MODE = true;
-
-    Real website publish karte waqt:
-    const TEST_MODE = false;
-  */
-
-  const TEST_MODE = false;
-
-
   /* =====================================================
-     SHOW / HIDE BIRTHDAY INTRO
+     SHOW ONLY ON 31 AUGUST
   ===================================================== */
 
-  if (!isBirthday && !TEST_MODE) {
+  if (isBirthday) {
 
-    birthdayIntro.remove();
-    return;
+    birthdayWish.style.display = "block";
+
+    birthdayWish.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+  } else {
+
+    birthdayWish.style.display = "none";
+
+    birthdayWish.setAttribute(
+      "aria-hidden",
+      "true"
+    );
 
   }
-
-
-  /* =====================================================
-     MAKE INTRO VISIBLE
-  ===================================================== */
-
-  birthdayIntro.style.display = "flex";
-
-  birthdayIntro.setAttribute(
-    "aria-hidden",
-    "false"
-  );
-
-
-  /* =====================================================
-     PREVENT SCROLLING
-  ===================================================== */
-
-  document.body.style.overflow = "hidden";
-
-
-  /* =====================================================
-     AUTOMATICALLY FINISH INTRO
-     
-     CSS animation = approximately 17 seconds
-  ===================================================== */
-
-  setTimeout(() => {
-
-    birthdayIntro.style.pointerEvents = "none";
-
-    birthdayIntro.style.opacity = "0";
-
-    setTimeout(() => {
-
-      birthdayIntro.remove();
-
-      document.body.style.overflow = "";
-
-    }, 1500);
-
-  }, 17500);
-
 
 });
