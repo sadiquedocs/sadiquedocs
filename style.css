@@ -40,3 +40,128 @@ body {
   background-color: var(--accent-crimson);
   color: var(--bg-parchment);
 }
+
+/* =====================================================
+   HEADER & NAVIGATION
+   ===================================================== */
+.header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  /* Parchment glass effect */
+  background-color: rgba(242, 239, 233, 0.9); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.nav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Brand Logo */
+.brand {
+  font-family: var(--font-headline);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-charcoal);
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.brand .dot {
+  color: var(--accent-crimson);
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 3rem;
+  list-style: none;
+}
+
+.nav-link {
+  font-family: var(--font-headline);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover, 
+.nav-link.active {
+  color: var(--accent-crimson);
+}
+
+/* Archive Status (The Intelligence Vibe) */
+.archive-status {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-crimson);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.status-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(155, 28, 28, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(155, 28, 28, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(155, 28, 28, 0); }
+}
+
+/* Mobile Menu Toggle (Hidden on Desktop) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-toggle .bar {
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-charcoal);
+  transition: all 0.3s ease;
+}
+
+/* Main Content Padding (to prevent overlap with fixed header) */
+#main-content {
+  padding-top: 80px; 
+}
+
+/* Basic Responsive Rules for Navbar */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none; /* Ise hum baad mein JS se activate karenge */
+  }
+  .archive-status {
+    display: none; /* Mobile par clean rakhne ke liye hide kar rahe hain */
+  }
+  .menu-toggle {
+    display: flex;
+  }
+}
