@@ -375,3 +375,71 @@ main {
   }
 }
 
+/* =====================================================
+   MODERN FOOTER
+   ===================================================== */
+.modern-footer {
+  background-color: var(--text-main); /* Dark charcoal background */
+  color: var(--bg-primary); /* Off-white text */
+  padding: 4rem 2rem;
+  margin-top: 5rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+
+.footer-logo .accent-dot {
+  color: var(--accent-red);
+}
+
+.copyright {
+  font-size: 0.9rem;
+  color: rgba(244, 241, 235, 0.6); /* Muted off-white */
+}
+
+.footer-right {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-right a {
+  color: var(--bg-primary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.footer-right a:hover {
+  color: var(--accent-red);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
