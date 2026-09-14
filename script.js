@@ -1,263 +1,74 @@
-document.addEventListener("DOMContentLoaded", () => {
-
-  /* =====================================================
-     MOBILE NAVIGATION
-  ===================================================== */
-
-  const menu = document.querySelector(".menu-toggle");
-  const nav = document.querySelector("#nav-links");
-
-  if (menu && nav) {
-
-    menu.addEventListener("click", () => {
-
-      const isOpen = nav.classList.toggle("open");
-
-      menu.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-      );
-
-    });
-
-
-    // Close menu after clicking a navigation link
-
-    nav.querySelectorAll("a").forEach(link => {
-
-      link.addEventListener("click", () => {
-
-        nav.classList.remove("open");
-
-        menu.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-      });
-
-    });
-
-  }
-
-
-  /* =====================================================
-     DOCUMENTARY TABS
-  ===================================================== */
-
-  const tabs = [
-    ...document.querySelectorAll(".tab-btn")
-  ];
-
-  const panels = [
-    ...document.querySelectorAll(".tab-panel")
-  ];
-
-  const meta = document.querySelector(".tab-meta");
-
-
-  const info = {
-
-    ottoman:
-      "DIRECTORY: OTTOMAN PALESTINE / PERIOD: 1517–1917",
-
-    abdul:
-      "DIRECTORY: ABDUL HAMID II / PERIOD: 1876–1909",
-
-    jerusalem:
-      "DIRECTORY: JERUSALEM / PERIOD: LATE OTTOMAN ERA",
-
-    railway:
-      "DIRECTORY: HEJAZ RAILWAY / PERIOD: 1900–1920s"
-
-  };
-
-
-  /* =====================================================
-     TAB FUNCTION
-  ===================================================== */
-
-  function activateTab(tab) {
-
-    const target = tab.dataset.tab;
-
-
-    tabs.forEach(currentTab => {
-
-      const active =
-        currentTab === tab;
-
-      currentTab.classList.toggle(
-        "active",
-        active
-      );
-
-      currentTab.setAttribute(
-        "aria-selected",
-        String(active)
-      );
-
-    });
-
-
-    panels.forEach(panel => {
-
-      panel.classList.toggle(
-        "active",
-        panel.id === target
-      );
-
-    });
-
-
-    if (meta) {
-
-      meta.textContent =
-        info[target] || "";
-
-    }
-
-  }
-
-
-  /* =====================================================
-     TAB CLICK
-  ===================================================== */
-
-  tabs.forEach(tab => {
-
-    tab.addEventListener("click", () => {
-
-      activateTab(tab);
-
-    });
-
-
-    /* ===================================================
-       KEYBOARD NAVIGATION
-    =================================================== */
-
-    tab.addEventListener("keydown", event => {
-
-      const currentIndex =
-        tabs.indexOf(tab);
-
-      let nextIndex = currentIndex;
-
-
-      if (
-        event.key === "ArrowRight" ||
-        event.key === "ArrowDown"
-      ) {
-
-        nextIndex =
-          (currentIndex + 1) % tabs.length;
-
-      }
-
-
-      if (
-        event.key === "ArrowLeft" ||
-        event.key === "ArrowUp"
-      ) {
-
-        nextIndex =
-          (currentIndex - 1 + tabs.length) %
-          tabs.length;
-
-      }
-
-
-      if (nextIndex !== currentIndex) {
-
-        event.preventDefault();
-
-        tabs[nextIndex].focus();
-
-        activateTab(
-          tabs[nextIndex]
-        );
-
-      }
-
-    });
-
-  });
-
-
-  /* =====================================================
-     ESCAPE KEY
-     CLOSES MOBILE MENU
-  ===================================================== */
-
-  document.addEventListener("keydown", event => {
-
-    if (
-      event.key === "Escape" &&
-      menu &&
-      nav
-    ) {
-
-      nav.classList.remove("open");
-
-      menu.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-      menu.focus();
-
-    }
-
-  });
-
-});
-
 /* =====================================================
-   SADIQUE DOCS — BIRTHDAY HERO MESSAGE
-===================================================== */
+   SADIQUE DOCS - CINEMATIC INTERACTIONS & MOBILE MENU
+   ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
+  
+  // 1. Cinematic Page Load Effect
+  document.body.style.opacity = "0";
+  document.body.style.transition = "opacity 0.8s ease-in-out";
+  setTimeout(() => {
+    document.body.style.opacity = "1";
+  }, 100);
 
-  const birthdayWish = document.querySelector(".birthday-wish");
+  // 2. Smart Mobile Menu Setup
+  const navContainer = document.querySelector(".nav-container");
+  const navLinks = document.querySelector(".nav-links");
 
-  if (!birthdayWish) return;
+  if (navContainer && navLinks) {
+    // Generate menu button for mobile automatically
+    const menuBtn = document.createElement("button");
+    menuBtn.className = "mobile-menu-btn";
+    menuBtn.innerHTML = "MENU";
+    navContainer.appendChild(menuBtn);
 
+    // Inject exact CSS needed for the mobile menu interaction
+    const style = document.createElement("style");
+    style.innerHTML = `
+      .mobile-menu-btn {
+        display: none;
+        background: var(--text-main);
+        color: var(--bg-primary);
+        border: none;
+        padding: 0.5rem 1.2rem;
+        border-radius: 50px;
+        font-family: var(--font-body);
+        font-weight: 600;
+        font-size: 0.85rem;
+        cursor: pointer;
+        z-index: 2000;
+      }
+      @media (max-width: 768px) {
+        .mobile-menu-btn { display: block; }
+        .nav-links {
+          display: flex !important;
+          position: fixed;
+          top: 0; left: 0; width: 100%; height: 100vh;
+          background: var(--bg-glass);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          transform: translateY(-100%);
+          transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+          z-index: 1500;
+        }
+        .nav-links.nav-active {
+          transform: translateY(0);
+        }
+        .nav-links a {
+          font-size: 2rem !important;
+          color: var(--text-main) !important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
 
-  /* =====================================================
-     DATE CHECK
-     August = 7 in JavaScript
-  ===================================================== */
-
-  const today = new Date();
-
-  const isBirthday =
-    today.getMonth() === 7 &&
-    today.getDate() === 31;
-
-
-  /* =====================================================
-     SHOW ONLY ON 31 AUGUST
-  ===================================================== */
-
-  if (isBirthday) {
-
-    birthdayWish.style.display = "block";
-
-    birthdayWish.setAttribute(
-      "aria-hidden",
-      "false"
-    );
-
-  } else {
-
-    birthdayWish.style.display = "none";
-
-    birthdayWish.setAttribute(
-      "aria-hidden",
-      "true"
-    );
-
+    // Toggle menu on click
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("nav-active");
+      menuBtn.innerHTML = navLinks.classList.contains("nav-active") ? "CLOSE" : "MENU";
+    });
   }
-
 });
