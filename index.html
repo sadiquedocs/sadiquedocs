@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Search Console Verification (Preserved) -->
+  <!-- Google Search Console Verification -->
   <meta name="google-site-verification" content="jhZFHqTefklF3KIVMBRIzMfemLff9tF6Day4reYCloM">
 
   <!-- Primary SEO -->
@@ -33,172 +33,66 @@
   <!-- Favicon -->
   <link rel="icon" href="favicon.png" type="image/png">
 
-  <!-- Fonts (Option B: Editorial Display + Literary Serif + Archive Monospace) -->
+  <!-- Fonts: Ultra Modern Combo (Archivo Black for bold impact, Inter for clean UI) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Oswald:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Structured Data (Schema.org) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "SADIQUE DOCS",
-    "alternateName": "Sadique Documentary",
-    "url": "https://sadiquedocs.github.io/sadiquedocs/",
-    "description": "Research-driven documentaries exploring history, mystery, geopolitics, modern world events, wars, conflicts and untold stories.",
-    "creator": {
-      "@type": "Person",
-      "name": "Sadique Saif"
-    }
-  }
-  </script>
 </head>
-
 <body>
 
   <!-- =====================================================
-       FLOATING ARCHIVE NAVIGATION
+       MODERN NAVIGATION
   ====================================================== -->
-  <header class="header-container">
-    <nav class="site-nav">
-      <div class="nav-inner">
+  <header class="modern-header">
+    <nav class="nav-container">
+      
+      <a href="index.html" class="logo">
+        SADIQUE<span class="accent-dot">.</span>DOCS
+      </a>
 
-        <!-- Brand Identity -->
-        <a href="index.html" class="brand" aria-label="Sadique Docs Home">
-          SADIQUE<span class="dot">.</span>DOCS
-        </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="documentary.html">Documentaries</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
 
-        <!-- Mobile Menu Toggle Button -->
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
+      <a href="https://youtube.com/@sadiquedocs" target="_blank" class="nav-btn">
+        Subscribe
+      </a>
 
-        <!-- Navigation Links -->
-        <ul class="nav-links" id="navLinks">
-          <li><a href="index.html" class="nav-link active" aria-current="page">ARCHIVE</a></li>
-          <li><a href="documentary.html" class="nav-link">DOCUMENTARIES</a></li>
-          <li><a href="about.html" class="nav-link">ABOUT</a></li>
-        </ul>
-
-        <!-- Archive Status Indicator -->
-        <div class="archive-status">
-          <span class="status-indicator"></span>
-          <span class="status-label">ARCHIVE ONLINE</span>
-        </div>
-
-      </div>
     </nav>
   </header>
 
   <!-- =====================================================
-       MAIN CONTENT CONTAINER
+       MODERN HERO SECTION
   ====================================================== -->
-  <main id="main-content">
-       <!-- =====================================================
-         HERO SECTION (VINTAGE ARCHIVE)
-    ====================================================== -->
-    <section class="hero-section">
-      <div class="hero-container">
+  <main>
+    <section class="modern-hero">
+      <div class="hero-wrapper">
         
         <div class="hero-content">
-          <!-- Metadata / Eyebrow -->
-          <div class="archive-metadata text-mono">
-            <span>[ RECORD: CLASSIFIED ]</span>
-            <span>TOPIC: HISTORY & GEOPOLITICS</span>
-          </div>
-
-          <!-- Massive Editorial Headline -->
-          <h1 class="hero-title">
-            THE WORLD<br>
-            LEAVES <span class="highlight-crimson">TRACES.</span>
-          </h1>
-
-          <!-- Context Paragraph -->
-          <p class="hero-description">
-            SADIQUE DOCS explores history, mystery, geopolitics, and the modern world through research-driven documentaries. Some stories are preserved. Others are buried. We look for the traces.
-          </p>
-
-          <!-- Call to Action -->
-          <div class="hero-actions">
-            <a href="documentary.html" class="btn-primary">EXPLORE THE ARCHIVE</a>
-          </div>
-        </div>
-
-        <!-- Decorative Cinematic Visual / 3D Depth Element -->
-        <div class="hero-visual">
-          <div class="vintage-frame">
-            <div class="frame-corners"></div>
-            <span class="visual-label text-mono">SD-001 // SYSTEM ACTIVE</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-    <!-- =====================================================
-         LATEST TRANSMISSION / FEATURED ARCHIVE
-    ====================================================== -->
-    <section class="featured-section">
-      <div class="featured-container">
-        
-        <!-- Section Header -->
-        <div class="section-topline text-mono">
-          <span>[ LATEST RECORD ]</span>
-          <span>/SERIES/001</span>
-        </div>
-
-        <div class="featured-grid">
+          <span class="category-tag">DOCUMENTARIES • HISTORY • GEOPOLITICS</span>
           
-          <!-- Documentary Info -->
-          <div class="featured-copy">
-            <p class="featured-label text-mono">DOCUMENTARY SERIES</p>
-            
-            <h2 class="featured-title">
-              SULTAN<br>
-              <span class="highlight-crimson">ABDUL HAMID II</span>
-            </h2>
-            
-            <p class="featured-description">
-              The story of the Ottoman Sultan who inherited an empire standing at the edge of political crisis, war, and transformation.
-            </p>
-            
-            <!-- Metadata Grid -->
-            <div class="series-metadata text-mono">
-              <div class="meta-item">
-                <span class="meta-label">EPISODES</span>
-                <span class="meta-value">05</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">STATUS</span>
-                <span class="meta-value">ONGOING</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">ERA</span>
-                <span class="meta-value">1876—1909</span>
-              </div>
-            </div>
-
-            <a href="documentary.html" class="btn-secondary">OPEN ARCHIVE RECORD &rarr;</a>
+          <h1 class="main-title">
+            HISTORY ISN'T GONE.<br>
+            <span class="text-crimson">IT'S BURIED.</span>
+          </h1>
+          
+          <p class="hero-desc">
+            Exploring the untold stories, global conflicts, and mysteries that shaped our world through premium cinematic documentaries.
+          </p>
+          
+          <div class="hero-actions">
+            <a href="documentary.html" class="btn-primary">Explore Documentaries</a>
           </div>
-
-          <!-- Documentary Visual/Poster Frame -->
-          <div class="featured-visual">
-            <div class="poster-frame">
-               <!-- Placeholder for your cinematic thumbnail -->
-               <div class="poster-placeholder">
-                 <span class="text-mono">VISUAL DATA<br>[ CLASSIFIED ]</span>
-               </div>
-            </div>
-          </div>
-
         </div>
+
       </div>
     </section>
-
   </main>
 
   <script src="script.js"></script>
