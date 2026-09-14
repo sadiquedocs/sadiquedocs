@@ -442,4 +442,151 @@ main {
   }
 }
 
+/* =====================================================
+   DOCUMENTARY ARCHIVE PAGE
+   ===================================================== */
+
+/* Archive Page Hero */
+.archive-hero {
+  padding: 6rem 2rem 4rem;
+  text-align: center;
+  background-color: var(--text-main); /* Dark background for contrast */
+  color: var(--bg-primary);
+}
+
+.archive-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.archive-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5rem);
+  text-transform: uppercase;
+  letter-spacing: -1.5px;
+  margin-bottom: 1rem;
+}
+
+.archive-desc {
+  font-size: 1.15rem;
+  color: rgba(244, 241, 235, 0.7); /* Muted off-white */
+  line-height: 1.6;
+}
+
+/* Series Block */
+.series-block {
+  padding: 5rem 2rem;
+}
+
+.series-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.series-header {
+  margin-bottom: 3rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+  padding-bottom: 1.5rem;
+}
+
+.series-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  background-color: rgba(183, 28, 28, 0.1);
+  color: var(--accent-red);
+  margin-bottom: 1rem;
+}
+
+.series-name {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+
+/* Episodes Grid Layout */
+.episodes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Individual Episode Card */
+.episode-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  background-color: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.episode-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Thumbnail Area */
+.ep-thumbnail {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: var(--text-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Play Button */
+.ep-play-btn {
+  width: 55px;
+  height: 55px;
+  background-color: var(--accent-red);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  padding-left: 4px; /* Visually centers the play triangle */
+  opacity: 0.9;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.episode-card:hover .ep-play-btn {
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+/* Episode Text Info */
+.ep-info {
+  padding: 1.5rem;
+}
+
+.ep-num {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-red);
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.ep-title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text-main);
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
 
