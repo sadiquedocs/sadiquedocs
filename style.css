@@ -199,3 +199,179 @@ main {
     letter-spacing: 0;
   }
 }
+
+/* =====================================================
+   MODERN FEATURED SECTION
+   ===================================================== */
+.featured-doc {
+  padding: 5rem 2rem;
+}
+
+.featured-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Section Header */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+  padding-bottom: 1rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+
+.view-all-link {
+  font-weight: 600;
+  color: var(--accent-red);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.view-all-link:hover {
+  opacity: 0.7;
+}
+
+/* Card Layout */
+.doc-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #fff; /* Crisp white card against warm background */
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.doc-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+}
+
+/* Image Area */
+.doc-visual {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  background-color: var(--text-main);
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+/* Text Details Area */
+.doc-details {
+  padding: 4rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.doc-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.04);
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.doc-title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+.doc-excerpt {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Metadata Grid */
+.doc-meta {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.meta-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.meta-value {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-main);
+}
+
+/* Outline Pill Button */
+.btn-outline {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border: 2px solid var(--text-main);
+  color: var(--text-main);
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background-color: var(--text-main);
+  color: #fff;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 900px) {
+  .doc-card {
+    grid-template-columns: 1fr;
+  }
+  .doc-visual {
+    min-height: 250px;
+  }
+  .doc-details {
+    padding: 2.5rem 1.5rem;
+  }
+  .doc-title {
+    font-size: 2rem;
+  }
+}
+
