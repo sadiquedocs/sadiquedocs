@@ -647,4 +647,123 @@ main {
   margin-top: 1rem;
 }
 
+/* =====================================================
+   EDITORIAL POSTS / VISUAL ARCHIVES CAROUSEL
+   ===================================================== */
+.editorial-posts {
+  padding: 2rem 2rem 5rem;
+}
+
+.editorial-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Horizontal Scroll Container */
+.carousel-container {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding-bottom: 2rem;
+  scroll-snap-type: x mandatory; /* Smooth snapping like Instagram */
+  
+  /* Hiding scrollbar for a cleaner look */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Individual Post Card */
+.post-card {
+  min-width: 350px; /* Fixed width for horizontal scrolling */
+  max-width: 350px;
+  flex: 0 0 auto;
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  scroll-snap-align: start; /* Snaps perfectly to the start of the card */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Carousel Image Area (Instagram 4:5 Ratio) */
+.post-slides {
+  width: 100%;
+  aspect-ratio: 4 / 5; 
+  background-color: var(--text-main);
+  position: relative;
+}
+
+.slide-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+/* Slide Counter Badge (e.g., 1 / 6) */
+.slide-indicator {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 2;
+}
+
+/* Post Text Info */
+.post-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.post-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.1;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+
+.post-swipe-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-red);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .post-card {
+    min-width: 280px; /* Smaller cards for mobile screens */
+    max-width: 280px;
+  }
+}
+
 
