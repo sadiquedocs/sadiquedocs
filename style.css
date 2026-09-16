@@ -646,3 +646,105 @@ main {
 .about-social {
   margin-top: 1rem;
 }
+
+/* =====================================================
+   DEDICATED VISUALS PAGE GRID (v-card)
+   ===================================================== */
+.visuals-section {
+  padding: 4rem 2rem 6rem;
+}
+.visuals-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.visuals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  justify-items: center;
+}
+
+/* 100% Removes Blue Links and Styles the Card */
+.v-card {
+  width: 100%;
+  max-width: 400px;
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none !important; 
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.v-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+.v-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-color: var(--text-main);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.v-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.v-img-text {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+.v-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.v-tag {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--accent-red);
+  background-color: rgba(183, 28, 28, 0.1);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+  align-self: flex-start;
+  text-transform: uppercase;
+}
+.v-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+.v-action {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-red);
+  margin-top: auto;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
