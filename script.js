@@ -27,9 +27,16 @@ document.addEventListener("DOMContentLoaded", () => {
     style.innerHTML = `
       .mobile-menu-btn {
         display: none;
-        background: var(--text-main);
-        color: var(--bg-primary);
-        border: none;
+        
+        /* === GLASSMORPHISM EFFECT START === */
+        background: rgba(26, 26, 26, 0.08); 
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid rgba(26, 26, 26, 0.15);
+        color: var(--text-main);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        /* === GLASSMORPHISM EFFECT END === */
+
         padding: 0.5rem 1.2rem;
         border-radius: 50px;
         font-family: var(--font-body);
@@ -37,6 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
         font-size: 0.85rem;
         cursor: pointer;
         z-index: 2000;
+        transition: all 0.3s ease;
+      }
+      .mobile-menu-btn:hover {
+        background: rgba(26, 26, 26, 0.15);
       }
       @media (max-width: 768px) {
         .mobile-menu-btn { display: block; }
