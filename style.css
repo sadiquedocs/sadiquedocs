@@ -204,3 +204,48 @@ main { padding-top: 100px; }
 /* Responsive */
 @media (max-width: 900px) { .doc-card { grid-template-columns: 1fr; } .nav-links, .nav-btn { display: none; } }
 @media (max-width: 768px) { .footer-container { flex-direction: column; align-items: flex-start; } .nav-container { padding: 1rem 0.5rem !important; } }
+
+/* =====================================================
+   BISMILLAH IMAGE HERO SECTION
+   ===================================================== */
+.bismillah-container {
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Image ko center mein layega */
+  text-align: center;  /* Niche likhe text ko center karega */
+}
+
+.bismillah-img {
+  width: 100%;
+  max-width: 280px; /* Image ka size yahan se control hoga */
+  height: auto;
+  margin-bottom: 1.2rem;
+  /* Agar image mein white background hai toh usay hatane ke liye: */
+  mix-blend-mode: multiply; 
+}
+
+.bismillah-roman {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent-red); /* Website ka crimson red color */
+  letter-spacing: 1px;
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+}
+
+.bismillah-meaning {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Mobile ke liye size thoda chota */
+@media (max-width: 768px) {
+  .bismillah-img {
+    max-width: 220px;
+  }
+}
