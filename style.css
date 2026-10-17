@@ -251,202 +251,124 @@ main { padding-top: 100px; }
 }
 
 /* =====================================================
-   ROYAL PALACE PAINTING FRAME (LATEST RELEASE)
+   CLEAN DARK VIDEO SHOWCASE WITH RED BORDER
    ===================================================== */
-.royal-wall-alcove {
-  position: relative;
-  background: radial-gradient(circle at 50% 0%, #261F1A 0%, #110F0E 75%, #0A0908 100%);
-  border-radius: 28px;
-  padding: 4rem 3.5rem 3.5rem;
-  box-shadow: 
-    0 35px 70px rgba(0, 0, 0, 0.28),
-    inset 0 0 80px rgba(0, 0, 0, 0.85),
-    inset 0 1px 0 rgba(212, 175, 55, 0.25);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+.dark-video-showcase {
+  background-color: #0B0B0B; /* पीछे का डीप ब्लैक बैकग्राउंड */
+  border-radius: 24px;
+  padding: 2rem; /* पैडिंग कम रखी है ताकि थंबनेल बहुत बड़ा दिखे */
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden;
 }
 
-/* Museum Lamp Spotlight Effect from Above */
-.palace-spotlight {
-  position: absolute;
-  top: -120px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 75%;
-  height: 320px;
-  background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.22) 0%, rgba(212, 175, 55, 0) 70%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Ornate Multi-Layered Antique Gold Frame */
-.royal-painting-frame {
+/* बड़ा थंबनेल और सिर्फ रेड बॉर्डर */
+.clean-thumb-link {
   position: relative;
-  z-index: 2;
   display: block;
   width: 100%;
-  max-width: 960px; /* Bada Grand Painting Size */
-  padding: 18px;
-  background: linear-gradient(135deg, #D4AF37 0%, #7A5C18 25%, #F3E5AB 50%, #8A6621 75%, #C59B27 100%);
-  border-radius: 6px;
-  box-shadow: 
-    0 30px 60px rgba(0, 0, 0, 0.85),        /* Deep 3D Wall Drop Shadow */
-    0 10px 25px rgba(0, 0, 0, 0.7),
-    inset 0 0 12px rgba(0, 0, 0, 0.75),     /* Carved Gold Depth */
-    inset 0 2px 3px rgba(255, 255, 255, 0.5);
-  border: 3px solid #4A350B;
-  text-decoration: none;
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease;
-  cursor: pointer;
-}
-
-.royal-painting-frame:hover {
-  transform: scale(1.015) translateY(-4px);
-  box-shadow: 
-    0 40px 80px rgba(0, 0, 0, 0.95),
-    0 0 35px rgba(212, 175, 55, 0.25),
-    inset 0 0 12px rgba(0, 0, 0, 0.75);
-}
-
-/* Inner Dark Velvet & Gold Fillet Matting */
-.royal-inner-mat {
-  position: relative;
-  padding: 14px;
-  background-color: #14110F; /* Deep Royal Charcoal Velvet Mat */
-  border: 2px solid #B5902B; /* Inner Gold Rim */
-  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.9);
+  max-width: 1120px; /* फुल-साइज़ बड़ा थंबनेल */
   aspect-ratio: 16 / 9;
+  border: 3px solid #B71C1C; /* चारों ओर क्लीन रेड बॉर्डर */
+  border-radius: 14px;
   overflow: hidden;
+  box-shadow: 0 15px 40px rgba(183, 28, 28, 0.2);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
-/* The Painting / Thumbnail Image */
-.royal-painting-img {
+.clean-thumb-link:hover {
+  transform: translateY(-4px);
+  border-color: #FF1744;
+  box-shadow: 0 20px 50px rgba(183, 28, 28, 0.4);
+}
+
+.clean-thumb-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-  transition: transform 0.6s ease, filter 0.4s ease;
+  transition: transform 0.5s ease;
 }
 
-.royal-painting-frame:hover .royal-painting-img {
-  transform: scale(1.03);
-  filter: contrast(1.05) brightness(1.05);
+.clean-thumb-link:hover .clean-thumb-img {
+  transform: scale(1.02);
 }
 
-/* Center Play Button Overlay on Painting */
-.painting-play-overlay {
+/* बीच में असली YouTube Play Button Logo */
+.yt-logo-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.45) 100%);
+  background: rgba(0, 0, 0, 0.15);
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background 0.4s ease;
+  transition: background 0.3s ease;
 }
 
-.painting-play-icon {
-  width: 76px;
-  height: 76px;
-  border-radius: 50%;
-  background: rgba(183, 28, 28, 0.9); /* Crimson Red */
-  border: 2px solid #D4AF37;          /* Gold Ring */
-  color: #fff;
-  font-size: 1.8rem;
-  padding-left: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-  transition: transform 0.35s ease, background-color 0.35s ease;
+.clean-thumb-link:hover .yt-logo-overlay {
+  background: rgba(0, 0, 0, 0.05);
 }
 
-.royal-painting-frame:hover .painting-play-icon {
-  transform: scale(1.15);
-  background: #D32F2F;
+.yt-logo-svg {
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.7));
+  transition: transform 0.3s ease;
 }
 
-/* Royal Plaque & Caption Area Below Painting */
-.royal-plaque {
-  position: relative;
-  z-index: 2;
-  max-width: 820px;
+.clean-thumb-link:hover .yt-logo-svg {
+  transform: scale(1.12);
+}
+
+/* थंबनेल के नीचे का टेक्स्ट (बिना किसी गोल्डन लाइन के) */
+.dark-video-info {
+  max-width: 850px;
   text-align: center;
-  margin-top: 2.8rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  margin-top: 2.2rem;
+  padding: 0 1rem 0.5rem;
 }
 
-.plaque-badges {
-  display: flex;
-  justify-content: center;
-  gap: 0.8rem;
-  flex-wrap: wrap;
-  margin-bottom: 1.2rem;
+.clean-red-badge {
+  background-color: rgba(183, 28, 28, 0.2) !important;
+  color: #FF5252 !important;
+  border: 1px solid rgba(183, 28, 28, 0.45);
+  margin-bottom: 1rem !important;
 }
 
-.royal-badge {
-  background-color: rgba(183, 28, 28, 0.25) !important;
-  color: #FF6B6B !important;
-  border: 1px solid rgba(183, 28, 28, 0.5);
-  margin-bottom: 0 !important;
-}
-
-.era-badge {
-  background-color: rgba(212, 175, 55, 0.12) !important;
-  color: #E8D385 !important;
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  margin-bottom: 0 !important;
-}
-
-.royal-video-title {
+.dark-video-title {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-  color: #F4F1EB;
-  letter-spacing: -0.5px;
+  font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+  color: #FFFFFF;
   line-height: 1.15;
   margin-bottom: 1rem;
   text-transform: uppercase;
 }
 
-.royal-video-caption {
+.dark-video-caption {
   font-family: var(--font-body);
-  font-size: 1.1rem;
+  font-size: 1.08rem;
   color: rgba(244, 241, 235, 0.8);
   line-height: 1.7;
-  margin-bottom: 2rem;
+  margin-bottom: 1.8rem;
 }
 
-.royal-watch-btn {
-  border: 1px solid rgba(212, 175, 55, 0.4);
-}
-
-/* Mobile Adjustments for Royal Frame */
+/* मोबाइल के लिए सेटिंग */
 @media (max-width: 768px) {
-  .royal-wall-alcove {
-    padding: 2rem 1.2rem;
-    border-radius: 20px;
+  .dark-video-showcase {
+    padding: 1rem;
+    border-radius: 16px;
   }
-  .royal-painting-frame {
-    padding: 10px;
+  .clean-thumb-link {
+    border-width: 2px;
+    border-radius: 10px;
   }
-  .royal-inner-mat {
-    padding: 6px;
+  .yt-logo-svg {
+    width: 64px;
+    height: 45px;
   }
-  .painting-play-icon {
-    width: 54px;
-    height: 54px;
-    font-size: 1.3rem;
+  .dark-video-info {
+    margin-top: 1.5rem;
   }
-  .royal-plaque {
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-  }
-  .royal-video-caption {
-    font-size: 0.98rem;
+  .dark-video-caption {
+    font-size: 0.95rem;
   }
 }
