@@ -1,29 +1,103 @@
 /* =====================================================
-   SADIQUE DOCS - WHITEHOUSE SMOOTH SCROLL & REVEAL ENGINE
+   SADIQUE DOCS - INTERACTIVE CINEMA & SCROLL ENGINE
    ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-  
-  // 1. TOP SCROLL PROGRESS BAR
+
+  // 1. CINEMA CURTAIN PRELOADER & YEAR COUNTER
+  const preloader = document.getElementById("preloader");
+  const yearEl = document.getElementById("preloaderYear");
+  if (preloader && yearEl) {
+    const years = ["1876", "1909", "1924", "2026"];
+    let i = 0;
+    const interval = setInterval(() => {
+      i++;
+      if (i < years.length) {
+        yearEl.textContent = years[i];
+      } else {
+        clearInterval(interval);
+      }
+    }, 260);
+
+    setTimeout(() => {
+      preloader.classList.add("preloader-hide");
+    }, 1350);
+  }
+
+  // 2. TOP SCROLL PROGRESS BAR
   const progressBar = document.createElement("div");
   progressBar.className = "scroll-progress-bar";
   document.body.prepend(progressBar);
 
-  // 2. TOP EDITORIAL TICKER BAR
+  // 3. TOP EDITORIAL TICKER BAR
   const ticker = document.createElement("div");
   ticker.className = "top-ticker";
   const tickerContent = `
     <a href="https://youtu.be/Mj7YpHPiII8" target="_blank" class="ticker-item">
-      <span><span class="ticker-dot">●</span> NEW RELEASE: LAST OF KHILAFAT — SULTAN ABDUL HAMID II AUR MUSLIM UNITY</span>
-      <span>WATCH NOW ON YOUTUBE &rarr;</span>
-      <span><span class="ticker-dot">●</span> SADIQUE DOCS ARCHIVE: RESEARCH-DRIVEN HISTORY, MYSTERY & GEOPOLITICS</span>
+      <span><span class="ticker-dot">●</span> PREMIERE: LAST OF KHILAFAT — SULTAN ABDUL HAMID II AUR MUSLIM UNITY</span>
+      <span>WATCH NOW IN 4K &rarr;</span>
+      <span><span class="ticker-dot">●</span> SADIQUE DOCS ARCHIVE: HISTORY, MYSTERY & GEOPOLITICS</span>
       <span><span class="ticker-dot">●</span> ONGOING SERIES: SULTAN ABDUL HAMID II ON INSTAGRAM</span>
     </a>
   `;
   ticker.innerHTML = `<div class="ticker-track">${tickerContent}${tickerContent}</div>`;
   document.body.prepend(ticker);
 
-  // 3. LENIS SMOOTH MOUSE-WHEEL ENGINE
+  // 4. CUSTOM MAGNETIC CURSOR (PC/LAPTOP)
+  const cursor = document.createElement("div");
+  cursor.className = "custom-cursor";
+  document.body.appendChild(cursor);
+
+  let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
+  window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function animateCursor() {
+    cursorX += (mouseX - cursorX) * 0.18;
+    cursorY += (mouseY - cursorY) * 0.18;
+    cursor.style.left = `${cursorX}px`;
+    cursor.style.top = `${cursorY}px`;
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+
+  const cursorTargets = document.querySelectorAll("[data-cursor]");
+  cursorTargets.forEach((target) => {
+    target.addEventListener("mouseenter", () => {
+      cursor.classList.add("cursor-expand");
+      cursor.textContent = target.getAttribute("data-cursor");
+    });
+    target.addEventListener("mouseleave", () => {
+      cursor.classList.remove("cursor-expand");
+      cursor.textContent = "";
+    });
+  });
+
+  // 5. 3D TILT EFFECT & GLARE ON VIDEO/PILLAR CARDS
+  const tiltCards = document.querySelectorAll(".tilt-card");
+  tiltCards.forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -4;
+      const rotateY = ((x - centerX) / centerX) * 4;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
+      card.style.setProperty("--mouse-x", `${(x / rect.width) * 100}%`);
+      card.style.setProperty("--mouse-y", `${(y / rect.height) * 100}%`);
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
+    });
+  });
+
+  // 6. LENIS SMOOTH MOUSE-WHEEL ENGINE
   const lenisScript = document.createElement("script");
   lenisScript.src = "https://unpkg.com/lenis@1.1.18/dist/lenis.min.js";
   lenisScript.onload = () => {
@@ -42,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   document.head.appendChild(lenisScript);
 
-  // 4. SCROLL REVEAL OBSERVER
+  // 7. BLUR-TO-SHARP SCROLL REVEAL OBSERVER
   const autoRevealSelectors = [
     ".bismillah-container",
     ".editorial-kicker",
@@ -77,9 +151,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   elementsToReveal.forEach((el) => revealObserver.observe(el));
 
-  // 5. SCROLL PROGRESS & SUBTLE HERO VIDEO PARALLAX
+  // 8. SCROLL FRAME CINEMA PARALLAX & FLOATING HEADER
   const header = document.querySelector(".modern-header");
-  const heroVideo = document.querySelector(".hero-video-bg");
+  const heroFrame = document.getElementById("heroVideoFrame");
+  const bismillahBox = document.querySelector(".bismillah-container");
 
   window.addEventListener("scroll", () => {
     const scrollTop = window.scrollY;
@@ -88,15 +163,25 @@ document.addEventListener("DOMContentLoaded", () => {
     progressBar.style.width = `${scrollPercent}%`;
 
     if (header) {
-      header.classList.toggle("header-scrolled", scrollTop > 40);
+      header.classList.toggle("header-scrolled", scrollTop > 50);
     }
 
-    if (heroVideo && scrollTop < window.innerHeight) {
-      heroVideo.style.transform = `scale(1.04) translateY(${scrollTop * 0.25}px)`;
+    // Scroll karne par Hero Video Frame smoothly inset/cinema window banega
+    if (heroFrame && scrollTop < window.innerHeight) {
+      const progress = Math.min(scrollTop / (window.innerHeight * 0.8), 1);
+      const scaleVal = 1 - progress * 0.06;
+      const radiusVal = progress * 24;
+      heroFrame.style.transform = `scale(${scaleVal})`;
+      heroFrame.style.borderRadius = `${radiusVal}px`;
+      
+      if (bismillahBox) {
+        bismillahBox.style.transform = `translateY(${scrollTop * -0.22}px)`;
+        bismillahBox.style.opacity = `${1 - progress * 1.15}`;
+      }
     }
   });
 
-  // 6. MOBILE MENU
+  // 9. MOBILE MENU
   const navContainer = document.querySelector(".nav-container");
   const navLinks = document.querySelector(".nav-links");
 
@@ -116,17 +201,18 @@ document.addEventListener("DOMContentLoaded", () => {
         display: none;
         background: transparent;
         border: none;
-        color: var(--text-main);
-        padding: 0.5rem; 
+        color: currentColor;
+        padding: 0.4rem; 
         border-radius: 50px;
         cursor: pointer;
         z-index: 2000;
         transition: all 0.4s ease;
       }
+      .modern-header.header-scrolled .mobile-menu-btn { color: #F4F1EB; }
       .mobile-menu-btn.btn-active {
         background: rgba(183, 28, 28, 0.9); 
-        color: #ffffff; 
-        padding: 0.5rem 1rem;
+        color: #ffffff !important; 
+        padding: 0.4rem 0.9rem;
       }
       @media (max-width: 900px) {
         .mobile-menu-btn { display: flex; align-items: center; justify-content: center; }
@@ -134,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
           display: flex !important;
           position: fixed;
           top: 0; left: 0; width: 100%; height: 100vh;
-          background: rgba(244, 241, 235, 0.97);
+          background: rgba(10, 10, 10, 0.97);
           backdrop-filter: blur(25px);
           flex-direction: column;
           justify-content: center;
@@ -144,7 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
           z-index: 1500;
         }
         .nav-links.nav-active { transform: translateY(0); }
-        .nav-links a { font-size: 1.8rem !important; color: var(--text-main) !important; }
+        .nav-links a { font-size: 1.8rem !important; color: #F4F1EB !important; }
       }
     `;
     document.head.appendChild(style);
