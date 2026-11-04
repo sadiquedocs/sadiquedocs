@@ -9,46 +9,19 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://sadiquedocs.github.io/sadiquedocs/">
   
+  <!-- Reference Image Style Expressive Bold Font (Fraunces + Plus Jakarta Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,SOFT,wght@0,9..144,100,800;0,9..144,100,900;1,9..144,100,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- CINEMA CURTAIN PRELOADER -->
-  <div class="cinema-preloader" id="preloader">
-    <div class="preloader-inner">
-      <div class="preloader-emblem">
-        <svg viewBox="0 0 44 44" width="48" height="48" fill="none">
-          <circle cx="22" cy="22" r="20" stroke="#B71C1C" stroke-width="1.8" stroke-dasharray="4 3"/>
-          <circle cx="22" cy="22" r="14" stroke="#F4F1EB" stroke-width="1.2" stroke-opacity="0.4"/>
-          <path d="M22 6L25.5 18.5L38 22L25.5 25.5L22 38L18.5 25.5L6 22L18.5 18.5L22 6Z" fill="#B71C1C"/>
-          <circle cx="22" cy="22" r="3" fill="#F4F1EB"/>
-        </svg>
-      </div>
-      <div class="preloader-year" id="preloaderYear">1876</div>
-      <div class="preloader-bar"><span class="preloader-fill"></span></div>
-      <p class="preloader-sub">OPENING HISTORICAL ARCHIVES</p>
-    </div>
-  </div>
-
-  <!-- FLOATING GLASS CAPSULE HEADER WITH NEW EMBLEM LOGO -->
+  <!-- CLEAN EDITORIAL HEADER (SPRIGS REFERENCE STYLE) -->
   <header class="modern-header">
     <nav class="nav-container">
       <a href="index.html" class="brand-group">
-        <div class="brand-emblem">
-          <svg viewBox="0 0 40 40" width="34" height="34" fill="none">
-            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 2"/>
-            <path d="M20 5L23 17L35 20L23 23L20 35L17 23L5 20L17 17L20 5Z" fill="#B71C1C"/>
-            <circle cx="20" cy="20" r="2.5" fill="#F4F1EB"/>
-          </svg>
-        </div>
-        <div class="brand-text-wrap">
-          <span class="logo">SADIQUE DOCS</span>
-          <span class="logo-tagline">HISTORY • MYSTERY • GEOPOLITICS</span>
-        </div>
+        <span class="logo">Sadique Docs</span>
       </a>
 
       <ul class="nav-links">
@@ -58,119 +31,87 @@
         <li><a href="about.html">About</a></li>
       </ul>
 
-      <a href="https://youtube.com/@sadiquedocs" target="_blank" class="nav-btn">
-        <span class="pulse-dot"></span> Subscribe
-      </a>
+      <a href="https://youtube.com/@sadiquedocs" target="_blank" class="nav-btn">Subscribe</a>
     </nav>
   </header>
 
   <main>
     <!-- =====================================================
-         1. NATURAL FULL-SCREEN VIDEO HERO (ONLY WHITE BISMILLAH)
+         1. CLEAN TYPOGRAPHY HERO SECTION (NO VIDEO)
     ====================================================== -->
-    <section class="modern-hero" id="heroSection">
-      <div class="hero-video-frame" id="heroVideoFrame">
-        <video class="hero-video-bg" autoplay muted loop playsinline>
-          <source src="hero-bg.mp4" type="video/mp4">
-        </video>
-        <div class="hero-video-overlay"></div>
+    <section class="editorial-hero">
+      <div class="hero-wrapper">
+        
+        <!-- BISMILLAH SECTION -->
+        <div class="bismillah-container">
+          <img src="bismillah.png" alt="Bismillahir Rahmanir Raheem" class="bismillah-img">
+          <p class="bismillah-roman">Bismillahir Rahmanir Raheem</p>
+          <p class="bismillah-meaning">In the name of Allah, the Most Gracious, the Most Merciful</p>
+        </div>
 
-        <!-- Archival Corner HUD Markers -->
-        <div class="hud-corner hud-tl">REC // ARCHIVE-4K</div>
-        <div class="hud-corner hud-tr">OTTOMAN ERA • 1876</div>
+        <!-- OVERSIZEDBRAND DISPLAY & NEW SIGNATURE LINE -->
+        <div class="hero-typo-box">
+          <span class="signature-pill">HISTORY • MYSTERY • GEOPOLITICS</span>
 
-        <div class="hero-wrapper">
-          <div class="hero-content">
-            <!-- SIRF PURE WHITE BISMILLAH VIDEO KE UPAR -->
-            <div class="bismillah-container">
-              <img src="bismillah.png" alt="Bismillahir Rahmanir Raheem" class="bismillah-img">
-              <p class="bismillah-roman">Bismillahir Rahmanir Raheem</p>
-              <p class="bismillah-meaning">In the name of Allah, the Most Gracious, the Most Merciful</p>
-            </div>
+          <h1 class="display-brand-title">
+            Where Forgotten Empires <span class="text-crimson">Speak.</span>
+          </h1>
+
+          <p class="crunchy-subline">
+            CRAFTED FOR CURIOUS MINDS, NOT TEXTBOOKS — UNCOVERING THE BURIED TRUTHS OF HISTORY.
+          </p>
+
+          <div class="hero-actions">
+            <a href="documentary.html" class="btn-pill-outline">Explore The Archive</a>
+            <a href="https://youtube.com/@sadiquedocs" target="_blank" class="btn-primary">Watch on YouTube &rarr;</a>
           </div>
         </div>
 
-        <div class="scroll-down-hint">
-          <span>SCROLL TO UNCOVER</span>
-          <div class="scroll-wheel"><span class="wheel-dot"></span></div>
-        </div>
       </div>
     </section>
 
     <!-- =====================================================
-         2. SCROLL REVEAL CINEMATIC INTRO (BELOW VIDEO)
-    ====================================================== -->
-    <section class="hero-intro-scroll">
-      <div class="intro-scroll-wrapper">
-        <div class="editorial-kicker">DECLASSIFIED HISTORICAL ARCHIVE</div>
-
-        <h1 class="main-title BlurReveal">
-          HISTORY ISN'T GONE.<br>
-          <span class="text-crimson">IT'S BURIED.</span>
-        </h1>
-
-        <p class="hero-desc">
-          Exploring the untold stories, global conflicts, and mysteries that shaped our world through research-driven cinematic documentaries.
-        </p>
-
-        <div class="hero-actions">
-          <a href="documentary.html" class="btn-primary magnetic-btn">
-            <span>Explore The Archive</span>
-            <span class="btn-arrow">&rarr;</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- =====================================================
-         3. LATEST RELEASE - 3D TILT DOSSIER SHOWCASE
+         2. LATEST RELEASE (CLEAN THUMBNAIL + SMALL YT ICON)
     ====================================================== -->
     <section class="featured-doc">
       <div class="featured-wrapper">
         
         <div class="section-header">
           <div>
-            <span class="section-super">PREMIERE SCREENING</span>
-            <h2 class="section-title">Latest Release</h2>
+            <span class="section-super">LATEST PREMIERE</span>
+            <h2 class="section-title">Featured Documentary</h2>
           </div>
           <a href="https://youtu.be/Mj7YpHPiII8" target="_blank" rel="noopener noreferrer" class="view-all-link">Watch on YouTube &rarr;</a>
         </div>
 
-        <div class="dark-video-showcase">
+        <div class="clean-video-showcase">
           
-          <div class="dossier-meta-bar">
-            <span>DOSSIER NO. #SD-1876-KHILAFAT</span>
-            <span class="status-live">● STREAMING IN 4K</span>
-          </div>
-
-          <a href="https://youtu.be/Mj7YpHPiII8" target="_blank" rel="noopener noreferrer" class="clean-thumb-link tilt-card" data-cursor="WATCH FILM">
+          <!-- Thumbnail with NO circle ring & small sleek YouTube icon -->
+          <a href="https://youtu.be/Mj7YpHPiII8" target="_blank" rel="noopener noreferrer" class="clean-thumb-link" title="Watch on YouTube">
             <img src="wide_cinematic_historical_thumbnail_poster_style_i.png" alt="Last of Khilafat | Sultan Abdul Hamid II Aur Muslim Unity" class="clean-thumb-img">
-            <div class="card-glare"></div>
             
+            <!-- Sleek Small Official YouTube Icon (No Circle) -->
             <div class="yt-logo-overlay">
-              <div class="cinema-play-ring">
-                <svg class="yt-logo-svg" viewBox="0 0 68 48" width="84" height="60">
-                  <path class="yt-logo-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#FF0000"></path>
-                  <path d="M 45,24 27,14 27,34" fill="#FFFFFF"></path>
-                </svg>
-              </div>
+              <svg class="yt-logo-svg" viewBox="0 0 68 48" width="52" height="37">
+                <path class="yt-logo-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#FF0000"></path>
+                <path d="M 45,24 27,14 27,34" fill="#FFFFFF"></path>
+              </svg>
             </div>
           </a>
 
-          <div class="dark-video-info">
-            <span class="doc-badge clean-red-badge">HISTORICAL DOCUMENTARY • OTTOMAN KHILAFAT</span>
+          <div class="clean-video-info">
+            <span class="doc-badge">HISTORICAL DOCUMENTARY • OTTOMAN KHILAFAT</span>
 
-            <h3 class="dark-video-title">
+            <h3 class="clean-video-title">
               Last of Khilafat | Sultan Abdul Hamid II Aur Muslim Unity
             </h3>
 
-            <p class="dark-video-caption">
+            <p class="clean-video-caption">
               What was the true significance of the Caliphate during the era of Sultan Abdul Hamid II? Was Pan-Islamism merely a political strategy to save the Ottoman Empire, or was it a religious and diplomatic vision for Muslim unity?
             </p>
 
-            <a href="https://youtu.be/Mj7YpHPiII8" target="_blank" rel="noopener noreferrer" class="btn-primary magnetic-btn">
-              <span>Watch Full Documentary</span>
-              <span class="btn-arrow">&rarr;</span>
+            <a href="https://youtu.be/Mj7YpHPiII8" target="_blank" rel="noopener noreferrer" class="btn-primary">
+              Watch Full Documentary &rarr;
             </a>
           </div>
 
@@ -180,43 +121,46 @@
     </section>
 
     <!-- =====================================================
-         4. INTERACTIVE 3 PILLARS (WITH 4K IMAGES & HOVER EXPAND)
+         3. CRIMSON RED EDITORIAL BLOCK (LIKE "OUR TOP SIPS" IN REF)
     ====================================================== -->
-    <section class="editorial-statement">
+    <section class="crimson-editorial-block">
       <div class="statement-wrapper">
-        <span class="statement-kicker">THE SADIQUE DOCS METHODOLOGY</span>
-        <h2 class="statement-quote">
-          "WE UNCOVER THE ARCHIVES, DIPLOMATIC SECRETS, AND FORGOTTEN EMPIRES THAT <span class="text-crimson">DEFINED MODERN HISTORY.</span>"
-        </h2>
+        <div class="crimson-header-center">
+          <span class="crimson-kicker">THE SIGNATURE STYLE</span>
+          <h2 class="crimson-main-heading">Our Core Pillars</h2>
+          <p class="crimson-subtext">
+            Every documentary is crafted with archival precision, visual depth, and fearless geopolitical storytelling.
+          </p>
+        </div>
 
         <div class="pillars-grid">
-          <div class="pillar-card tilt-card">
+          <div class="pillar-card">
             <img src="pillar-research.jpg" alt="Deep Historical Research" class="pillar-bg-img">
             <div class="pillar-overlay"></div>
             <div class="pillar-content">
               <span class="pillar-num">01 / RESEARCH</span>
               <h3 class="pillar-title">Deep Historical Archives</h3>
-              <p class="pillar-desc">Every episode is built on authentic primary sources, classified records, and geopolitical analysis.</p>
+              <p class="pillar-desc">Built on authentic primary sources, declassified records, and deep historical investigation.</p>
             </div>
           </div>
 
-          <div class="pillar-card tilt-card">
+          <div class="pillar-card">
             <img src="pillar-visuals.jpg" alt="Cinematic Storytelling" class="pillar-bg-img">
             <div class="pillar-overlay"></div>
             <div class="pillar-content">
               <span class="pillar-num">02 / VISUALS</span>
               <h3 class="pillar-title">Cinematic Storytelling</h3>
-              <p class="pillar-desc">Bringing 19th-century Istanbul, fallen empires, and global turning points to life with 4K visuals.</p>
+              <p class="pillar-desc">Bringing 19th-century Istanbul, fallen empires, and global turning points to life in 4K.</p>
             </div>
           </div>
 
-          <div class="pillar-card tilt-card">
+          <div class="pillar-card">
             <img src="pillar-geopolitics.jpg" alt="Geopolitical Perspective" class="pillar-bg-img">
             <div class="pillar-overlay"></div>
             <div class="pillar-content">
               <span class="pillar-num">03 / PERSPECTIVE</span>
               <h3 class="pillar-title">Beyond The Textbooks</h3>
-              <p class="pillar-desc">Investigating the real motives, strategies, and untold chapters behind world-shaping events.</p>
+              <p class="pillar-desc">Investigating the real motives, diplomatic strategies, and untold chapters behind world events.</p>
             </div>
           </div>
         </div>
@@ -224,29 +168,24 @@
     </section>
 
     <!-- =====================================================
-         5. CREATOR SPOTLIGHT (sadique-portrait.jpg)
+         4. CREATOR SPOTLIGHT (SPLIT EDITORIAL GRID)
     ====================================================== -->
     <section class="creator-spotlight">
       <div class="creator-grid">
-        <div class="creator-portrait-frame tilt-card">
+        <div class="creator-portrait-frame">
           <img src="sadique-portrait.jpg" alt="Sadique Saif — Creator of Sadique Docs" class="creator-portrait-img">
-          <div class="portrait-caption-tag">SADIQUE SAIF // DIRECTOR</div>
         </div>
         <div class="creator-info-box">
-          <span class="category-tag">THE CREATOR & DIRECTOR</span>
-          <h2 class="about-title">SADIQUE SAIF</h2>
+          <span class="signature-pill">THE CREATOR & DIRECTOR</span>
+          <h2 class="about-title">What makes Sadique Docs different?</h2>
           <div class="about-text">
-            <p>I’m Sadique Saif — the creator behind Sadique Docs.</p>
-            <p>Passionate about history, mysteries, and geopolitical turning points, I explore the buried past through intensive research, visual reconstruction, and a cinematic perspective.</p>
+            <p>I’m <strong>Sadique Saif</strong> — the creator behind Sadique Docs.</p>
+            <p>Passionate about history, mysteries, and geopolitical turning points, I explore the buried past through intensive research, visual reconstruction, and a signature cinematic perspective.</p>
           </div>
           <blockquote class="about-quote">
-            "Every story has a past.<br>
-            <span class="text-crimson">Every past has a story.</span>"
+            "Every story has a past. <span class="text-crimson">Every past has a story.</span>"
           </blockquote>
-          <a href="about.html" class="btn-primary magnetic-btn">
-            <span>Read Full Story</span>
-            <span class="btn-arrow">&rarr;</span>
-          </a>
+          <a href="about.html" class="btn-pill-outline">Read Full Story &rarr;</a>
         </div>
       </div>
     </section>
@@ -255,8 +194,8 @@
   <footer class="modern-footer">
     <div class="footer-container">
       <div class="footer-left">
-        <span class="footer-logo">SADIQUE DOCS</span>
-        <p class="copyright">&copy; 2026 Sadique Docs. Crafted for History & Cinema.</p>
+        <span class="footer-logo">Sadique Docs</span>
+        <p class="copyright">&copy; 2026 Sadique Docs. All rights reserved.</p>
       </div>
       <div class="footer-right">
         <a href="https://www.instagram.com/sadiquedocs/" target="_blank">Instagram</a>
