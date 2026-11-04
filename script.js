@@ -1,5 +1,5 @@
 /* =====================================================
-   SADIQUE DOCS - CLEAN EDITORIAL SMOOTH SCROLL & MENU
+   SADIQUE DOCS - ULTRA BUTTER SMOOTH SCROLL ENGINE
    ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -9,15 +9,41 @@ document.addEventListener("DOMContentLoaded", () => {
   progressBar.className = "scroll-progress-bar";
   document.body.prepend(progressBar);
 
-  // 2. LENIS SMOOTH MOUSE-WHEEL ENGINE
+  // 2. LENIS ULTRA-BUTTER INERTIA ENGINE + VELOCITY GLIDE
+  const lenisCss = document.createElement("link");
+  lenisCss.rel = "stylesheet";
+  lenisCss.href = "https://unpkg.com/lenis@1.1.18/dist/lenis.css";
+  document.head.appendChild(lenisCss);
+
   const lenisScript = document.createElement("script");
   lenisScript.src = "https://unpkg.com/lenis@1.1.18/dist/lenis.min.js";
   lenisScript.onload = () => {
     const lenis = new Lenis({
-      duration: 1.15,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      lerp: 0.065,          // Lower value = Extra buttery, heavy luxury glide
+      wheelMultiplier: 0.9, // Smooth controlled wheel speed
+      touchMultiplier: 1.5, // Smooth mobile touch inertia
       smoothWheel: true,
-      wheelMultiplier: 0.95,
+      infinite: false,
+    });
+
+    // Parallax targets jo scroll ke saath makkhan ki tarah float karenge
+    const parallaxImages = document.querySelectorAll(
+      ".clean-thumb-img, .pillar-bg-img, .creator-portrait-img"
+    );
+
+    lenis.on("scroll", ({ scroll, limit, velocity }) => {
+      // Top Red Progress Bar update
+      const progress = limit > 0 ? (scroll / limit) * 100 : 0;
+      progressBar.style.width = `${progress}%`;
+
+      // Subtle image parallax on mouse wheel glide
+      parallaxImages.forEach((img) => {
+        const rect = img.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          const centerOffset = (window.innerHeight / 2 - (rect.top + rect.height / 2)) * 0.04;
+          img.style.transform = `scale(1.05) translate3d(0, ${centerOffset}px, 0)`;
+        }
+      });
     });
 
     function raf(time) {
@@ -25,10 +51,18 @@ document.addEventListener("DOMContentLoaded", () => {
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
+
+    // Smooth anchor links
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", (e) => {
+        e.preventDefault();
+        lenis.scrollTo(anchor.getAttribute("href"));
+      });
+    });
   };
   document.head.appendChild(lenisScript);
 
-  // 3. CLEAN SCROLL REVEAL OBSERVER
+  // 3. SILKY SCROLL REVEAL OBSERVER (WITH SPRING EASING)
   const autoRevealSelectors = [
     ".bismillah-container",
     ".signature-pill",
@@ -58,19 +92,11 @@ document.addEventListener("DOMContentLoaded", () => {
         entry.target.classList.add("is-visible");
       }
     });
-  }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
+  }, { threshold: 0.08, rootMargin: "0px 0px -25px 0px" });
 
   elementsToReveal.forEach((el) => revealObserver.observe(el));
 
-  // 4. SCROLL PROGRESS UPDATE
-  window.addEventListener("scroll", () => {
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-    progressBar.style.width = `${scrollPercent}%`;
-  });
-
-  // 5. MOBILE MENU (CLEAN WARM CREAM OVERLAY)
+  // 4. MOBILE MENU (CLEAN WARM CREAM OVERLAY)
   const navContainer = document.querySelector(".nav-container");
   const navLinks = document.querySelector(".nav-links");
 
@@ -86,6 +112,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const style = document.createElement("style");
     style.innerHTML = `
+      /* Hardware GPU Acceleration for Butter Scroll */
+      .clean-video-showcase, .pillar-card, .creator-portrait-frame, .episode-card {
+        will-change: transform;
+        backface-visibility: hidden;
+        transform: translateZ(0);
+      }
       .mobile-menu-btn {
         display: none;
         background: transparent;
@@ -106,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
           justify-content: center;
           align-items: center;
           transform: translateY(-100%);
-          transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+          transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1);
           z-index: 1500;
         }
         .nav-links.nav-active { transform: translateY(0); }
